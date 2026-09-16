@@ -3,8 +3,9 @@ from functools import wraps
 
 
 def cache(func: Callable) -> Callable:
+
     cache_dict = {}
-    @wraps(func)
+    @wraps(func: Callable) -> Callable:
     def wrapper(*args, **kwargs):
         key = (args, tuple(sorted(kwargs.items())))
         if key in cache_dict:
